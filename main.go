@@ -1,27 +1,65 @@
 package main
 
-import (
-	"fmt"
-)
-
 func main() {
 
 	// cara menghitugan bunga berjalan
-	var input int
-	var cases1 int
-	var cases2 int
-
-	fmt.Print("input: ")
-	fmt.Scan(&input)
-	fmt.Print("cases1: ")
-	fmt.Scan(&cases1)
-	fmt.Print("cases2: ")
-	fmt.Scan(&cases2)
-
-	hasil := BungaBerjalanCalculate(input, cases1, cases2)
-	fmt.Println("Bunga Berjalan:", hasil, "bulan")
+	// var input int
+	// var cases1 int
+	// var cases2 int
+	// fmt.Print("input: ")
+	// fmt.Scan(&input)
+	// fmt.Print("cases1: ")
+	// fmt.Scan(&cases1)
+	// fmt.Print("cases2: ")
+	// fmt.Scan(&cases2)
+	// hasil := BungaBerjalanCalculate(input, cases1, cases2)
+	// fmt.Println("Bunga Berjalan:", hasil, "bulan")
 
 }
+
+// penyelesaian soal saham
+// 1. di beli
+// harga = harga kurs * jumlah lembar saham yg di beli * harga perlembar saham
+// harga di bayar tunai = harga + provisi
+// pembagian harga saham perlembar
+// Jurnal nya
+// Dr. Marketable securities: hargadibayartunai
+// Cr.             Cash     :					hargadibayartunai
+
+// 2. dijual
+// harga = harga kurs * jumlah lembar saham yg di jual * harga perlembar saham
+// harga di bayar tunai = harga - provisi
+// harga pokok penjualan saham = jumlah lembar saham yg di jual * harga perlembar saham
+// mencari laba = harga di bayar tunai - harga pokok penjualan saham
+// Jurnal nya
+// Dr. Cash                 				 : diterima tunai
+// Cr.             M/S      				 :               hargaPokokPenjualanSaham
+// Cr.             Profit On Sales securities:				 laba
+
+// penyelesaian soal obligation
+// 1. di beli
+// harga = harga kurs * jumlah lembar saham yg di jual * harga perlembar saham
+// nilaiMS = harga + provisi
+// Bunga berjalan
+// if bulanBeli < bulan1 && input < bulan2 {
+// 		hasil = bulan12 - bulan2 + bulanBeli
+// 	} else if bulanBeli == bulan1 && input == bulan2 {
+// 		hasil = 0
+// 	} else if bulanBeli > bulan1 {
+// 		hasil = bulanBeli - bulan1
+// 	}
+
+// harga2 = bulanBerjalan/12 * bungaobligasi% * jumlah lembar obligasi yg di beli * harga perlembar obligasi
+// dibayartunai = harga + harga2
+
+// mencari harga perlembar obligasi
+// perlembar = nilai M/S / jumlah lembar obligasi yg di beli
+// JURNAL
+// Dr. Marketable securities: nilaiMS
+// Dr. Interest earned      : harga2
+// Cr.             Cash     :					dibayartunai
+
+// mencari diterima bunga obligasi
 
 func DibeliBiayaTunai(hasilCalculate, biayaProvisi float64) float64 {
 	return hasilCalculate + biayaProvisi
